@@ -1,0 +1,6 @@
+MANIFEST
+*.pyc
+*~
+dist/*
+*.log
+django_saladoplayer.egg-info/*
