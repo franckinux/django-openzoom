@@ -1,0 +1,23 @@
+<!-- (C) Franck Barbenoire <fbarbenoire@yahoo.fr>
+License : GPL v3 -->
+{% load static %}
+<script type="text/javascript" src="{% get_static_prefix %}embed/swfobject.js"></script>
+<script type="text/javascript">
+<!--
+  var flashvars = {};
+  flashvars.source = "{{ openzoomsettings.url }}/{{ directory }}/{{ name }}.xml"
+  var params = {};
+  params.play = "true";
+  params.loop = "false";
+  params.menu = "false";
+  params.quality = "high";
+  params.scale = "showall";
+  params.wmode = "transparent";
+  params.bgcolor = "#FFFFFF";
+  params.devicefont = "false";
+  params.allowfullscreen = "true";
+  params.allowscriptaccess = "{% if openzoomsettings.secure %}sameDomain{% else %}always{% endif %}";
+  var attributes = {};
+  swfobject.embedSWF("{% get_static_prefix %}OpenZoomViewer.swf", "OpenZoom", "{{ width }}", "{{ height }}", "10.0.0", "{% get_static_prefix %}embed/expressInstall.swf", flashvars, params, attributes);
+-->
+</script>

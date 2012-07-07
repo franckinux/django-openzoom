@@ -3,4 +3,4 @@ MANIFEST
 *~
 dist/*
 *.log
-django_saladoplayer.egg-info/*
+django_openzoom.egg-info/*

@@ -1,1 +1,91 @@
-Documentation is available in the docs directory.
+Author
+======
+
+Franck Barbenoire <fbarbenoire@yahoo.fr>
+
+Software version
+================
+
+Version 0.1, July 2012.
+
+License
+=======
+
+This software is released under GPL v3 license :
+
+http://www.gnu.org/licenses/gpl-3.0.html 
+
+Introduction
+============
+
+Django-openzoom is a django application for displaying an image you can zoom in. It is based on the flash panorama viewer `OpenZoom <http://www.openzoom.org/>`_ from Daniel Gasienica.
+All the necessary flash files are embedded whithin the application as static files.
+
+Before you can use the application, you must fill a directory tree with images respecting the `DeepZoom <http://en.wikipedia.org/wiki/Deep_Zoom>`_ format .
+In the open source world, you can use `Python Deep Zoom Tools <https://github.com/openzoom/deepzoom.py>`_ for that task. It converts an image file into lots of image tiles.
+
+Installing the application
+==========================
+
+The OpenZoom application does not require any other application to be installed.
+
+* insert the saladoplayer application in the INSTALLED_APPS tuple in your project settings.py::
+
+    INSTALLED_APPS = (
+    ...
+    openzoom,
+    ...
+    )
+
+* insert the openzoom.contextprocessor.settings in the TEMPLATE_CONTEXT_PROCESSORS tuple in your project settings.py::
+
+    TEMPLATE_CONTEXT_PROCESSORS = (
+    ...
+    openzoom.context_processor.settings,
+    ...
+    )
+
+* modify the following symbols in settings.py:
+
+    * OPENZOOM_FLASH_SECURE.This is a boolean value. It controls whether to use "alway" or "sameDomain" for the AllowScriptAccess parameter (see `Control access to scripts \| Host web page <http://helpx.adobe.com/flash/kb/control-access-scripts-host-web.html>`_ page from Adobe for some more explanations about this). When the value is True, "sameDomain" is used.
+    * OPENZOOM_STATIC_URL. This is a string value. Its value is the panorama url root.
+
+Using the templates
+===================
+
+You can use the following templates tags for including them in your own templates :
+
+* before using the templates, insert this in your html page::
+
+    {% load openzoom %}
+
+* **openzoomscript**. This template tag must inserted in the header part of the html page. Its arguments are as follows :
+
+    * **directory**. This is a string argument. This is the tour id of the tour to be displayed.
+    * **name**. This is a string argument. Its value may be "hs" or "nohs" depending on whether you want the hotspots to be displayed or not.
+    * **Height**. This is an integer argument. This is the height of the SaladoPlayer window.
+    * **Width**. This is an integer argument. This is the width of the SaladoPlayer window::
+
+        {% openzoomscript directory name height width %}
+
+    This is how the path is organized : OPENZOOM_STATIC_URL/<directory>/<name>.xml
+
+* **openzoomdiv** : There is no argument. This template tag must inserted in the body part of the html page where you want the image to appear. It inserts a div html tag which id is "OpenZoom"::
+
+    {% openzoomdiv %}
+
+Example
+=======
+
+http://fcgi.franck-barbenoire.fr/visite/tableau/lechat/lechat/
+
+Tips
+====
+
+Here are some tips and common mistakes.
+
+When working with a remote host :
+
+* Don't forget to collect static files. Then upload these files in a directory so that they can be served by a dedicated server. Read the official documentation about static files ;
+
+* If you have installed the packages as eggs directories, don't forget to add ``django.template.loaders.eggs.Loader`` to your ``TEMPLATE_LOADERS`` tuple in your settings ;

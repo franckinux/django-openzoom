@@ -1,0 +1,5 @@
+include AUTHORS CHANGES LICENSE README MANIFEST.in
+recursive-include docs *
+recursive-include openzoom *
+recursive-exclude . *.pyc *~ .gitignore
+recursive-exclude docs/_build *
