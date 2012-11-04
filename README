@@ -62,8 +62,8 @@ You can use the following templates tags for including them in your own template
 * **openzoomscript**. This template tag must inserted in the header part of the html page. Its arguments are as follows :
 
     * **directory**. This is a string argument. This is the tour id of the tour to be displayed.
-    * **name**. This is a string argument. Its value may be "hs" or "nohs" depending on whether you want the hotspots to be displayed or not.
-    * **Height**. This is an integer argument. This is the height of the SaladoPlayer window.
+    * **Height**. This is an integer argument. This is the height of the
+SaladoPlayer window.
     * **Width**. This is an integer argument. This is the width of the SaladoPlayer window::
 
         {% openzoomscript directory name height width %}
