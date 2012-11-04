@@ -9,8 +9,8 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(name = "django-openzoom",
-    version = "0.1",
-    description = "Django application for displaying an image you can zoom in",
+    version = "0.1.1",
+    description = "Django application for displaying very high resolution images",
     author = "Franck Barbenoire",
     author_email = "fbarbenoire@yahoo.fr",
     url = "https://github.com/franckinux/django-openzoom",

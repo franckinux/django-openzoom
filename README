@@ -6,7 +6,7 @@ Franck Barbenoire <fbarbenoire@yahoo.fr>
 Software version
 ================
 
-Version 0.1, July 2012.
+Version 0.1.1, November 4th, 2012.
 
 License
 =======
@@ -77,7 +77,7 @@ You can use the following templates tags for including them in your own template
 Example
 =======
 
-http://fcgi.franck-barbenoire.fr/visite/tableau/lechat/lechat/
+http://fcgi.franck-barbenoire.fr/openzoom/html/lechat/lechat/
 
 Tips
 ====
